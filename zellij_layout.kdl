@@ -1,0 +1,38 @@
+layout {
+  tab focus=true {
+    pane size=1 borderless=true {
+      plugin location="zellij:tab-bar"
+    }
+    pane split_direction="vertical" {
+      pane {
+        focus true
+      }
+      pane split_direction="horizontal" {
+        pane size="60%" {
+          command "lazygit"
+        }
+        pane size="40%" {
+          command "cargo"
+          args "watch" "-x" "test" "-x" "run | bunyan"
+        }
+      }
+    }
+    pane size=2 borderless=true {
+      plugin location="zellij:status-bar"
+    }
+  }
+  tab {
+    pane size=1 borderless=true {
+      plugin location="zellij:tab-bar"
+    }
+    pane {
+      //command "just"
+      //args "surrealdb"
+      //command "surreal"
+      //args "start" "--username" "flowmentum" "--password" "flowmentum" "--allow-all" "--bind" "127.0.0.1:8001" "rocksdb://flowmentum.surrealdb"
+    }
+    pane size=2 borderless=true {
+      plugin location="zellij:status-bar"
+    }
+  }
+}
